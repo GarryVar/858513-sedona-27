@@ -1,0 +1,270 @@
+@font-face {
+  font-family: "PT Sans";
+  font-display:  swap;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/ptsans.woff2") format("woff2"),
+       url("../fonts/ptsans.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Sans";
+  font-display:  swap;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/ptsansbold.woff2") format("woff2"),
+       url("../fonts/ptsansbold.woff") format("woff");
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  background-color: #f2f2f2;
+
+  font-family: "PT Sans", "Arial", "Tahoma", sans-serif;
+  font-size: 14px;
+}
+
+*:focus {
+  outline: 1px dotted #222222;
+  outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  margin: -1px;
+  padding: 0;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  border: none;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+/* header */
+.main-header {
+  padding: 0;
+  margin: 0;
+
+  background-color: rgb(255,255,255);
+}
+
+.main-header__logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+
+
+  font-size: 0;
+
+  transform: translateX(-50%);
+}
+
+.main-nav__link {
+  display: inline-block;
+
+  vertical-align: middle;
+
+  font-family: "PT Sans";
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition-duration: 0.3s;
+  transition-property: color;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus {
+  color: #81b3d2;
+}
+
+.main-nav__link:active {
+  color: #b2b2b2;
+}
+
+.main-nav__link--current {
+  color: #766357;
+}
+
+
+/* main */
+
+.main {
+  background-color: rgb(255,255,255);
+}
+
+.intro__pic {
+  position: relative;
+
+  width: 100%;
+  min-height: 509px;
+
+  background: linear-gradient(160deg, #a2c4dc, #6b494a);
+  background-image: url("../img/polygon.svg"), url("../img/sedona.jpg");
+  background-position: center bottom -1px, 0 -55px;
+  background-repeat: no-repeat;
+  /*  background-size: 459px 353px, contain, cover;*/
+}
+
+.intro__img {
+  position: relative;
+
+  left: 50%;
+  top: 77px;
+
+  transform: translateX(-50%);
+}
+
+.main__features {
+  margin-top: 58px;
+}
+
+.features__text {
+  font-size: inherit;
+  color: #333333;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+}
+
+.features__text.features__text--big {
+  z-index: 10;
+
+  max-width: 460px;
+
+  margin:0;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: "PT Sans";
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 28px;
+
+}
+
+.features__text,
+.features__text--narrow {
+  margin-top: 28px;
+
+  font-family: "PT Sans";
+  font-size: inherit;
+}
+
+.button--search {
+  position: relative;
+  z-index: 2;
+
+  display: inline-block;
+
+  margin-top: 49px;
+  margin-bottom: -2px;
+
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-top: 30px;
+  padding-bottom:  30px;
+
+  vertical-align: middle;
+
+  background-color: #766357;
+  border: none;
+
+  color: rgb(255,255,255);
+  font-family: "PT Sans";
+  font-size: 21px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+
+
+  transition: ease .3s;
+  transition-duration: 0.3s;
+  transition-property: background-color;
+
+}
+
+.button--search:hover {
+  background-color: #604e43;
+
+  transition-duration: 0.3s;
+  transition-property: background-color;
+}
+
+.button--search:focus,
+.button--search:focus-within {
+  background-color: #604e43;
+}
+
+.button--search:active {
+  background-color: #503e33;
+
+  color: #857871;
+
+  transition-duration: 0.3s;
+  transition-property: background-color;
+}
+
+@keyframes drop-down_form {
+  from {
+    transform: translateY(-500px) translateX(-50%);
+  }
+  to {
+    transform: translateY(0px) translateX(-50%);
+  }
+}
+
+@keyframes form_error {
+  0%,
+  100% {
+    transform: rotate(0) translateX(-50%);
+    transform-origin: 0 50% 0;
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+     transform: rotate(-1deg) translateX(-50%);
+     transform-origin: 0 50% 0;
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+      transform: rotate(1deg) translateX(-50%);
+      transform-origin: 0 50% 0;
+  }
+}
+
+
+
+
+
