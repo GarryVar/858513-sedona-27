@@ -12,3 +12,4 @@ Thumbs.db
 *.json
 gulpfile.js
 .gitignore
+.stylelintrc
