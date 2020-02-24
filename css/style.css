@@ -1372,12 +1372,13 @@ body {
   color: #cacaca;
   text-transform: uppercase;
   text-decoration: none;
+
+  transition-duration: 0.3s;
+  transition-property: color;
 }
 
 .sort__link:hover {
   color: #81b3d2;
-
-  transition: ease 0.3s;
 }
 
 .sort__link:focus,
@@ -1389,8 +1390,6 @@ body {
 
 .sort__link:active {
   color: #000000;
-
-  transition: ease 0.3s;
 }
 
 .sort__link--active {
