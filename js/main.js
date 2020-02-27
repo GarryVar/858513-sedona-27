@@ -1,7 +1,6 @@
 (function() {
 
 // Глобальые переменые
-
   var searchBlock = document.querySelector('.hotel-search'),
       form = searchBlock.querySelector('.hotel-search__form'),
       inputEntry = form.querySelector('[name=entry]'),
