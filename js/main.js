@@ -1,14 +1,14 @@
 (function() {
 
-// Глобальые переменые
+// Глобальные переменные
   var searchBlock = document.querySelector('.hotel-search'),
       form = searchBlock.querySelector('.hotel-search__form'),
       inputEntry = form.querySelector('[name=entry]'),
       inputOut = form.querySelector('[name=out]'),
       inputAdult = form.querySelector('[name=adult]'),
       inputChild = form.querySelector('[name=child]'),
-      counterAdult = '',
-      counterChild = '',
+      quantityAdult = '',
+      quantityChild = '',
       storageEntry = localStorage.getItem('inputEntry'),
       storageOut = localStorage.getItem('inputOut'),
       isStorageSupport = true,
@@ -26,7 +26,7 @@
 
 
   // Функция увеличения числа на 1
-  function counterPlus(counter, inputValue) {
+  function counterAddition(counter, inputValue) {
     if(inputValue.value >= 0) {
         counter = inputValue.value;
         counter++;
@@ -36,7 +36,7 @@
 
 
   // Функция уменьшения числа на 1
-  function counterMinus(counter, inputValue) {
+  function counterSubtraction(counter, inputValue) {
     if (inputValue.value != 0) {
         counter = inputValue.value;
         counter--;
@@ -45,12 +45,12 @@
   };
 
   // Анимация ошибки
-  function addErrorClass() {
+  function addErrorAnimation() {
     searchBlock.classList.add('hotel-search--error');
   };
 
   // Убрать анимацию ошибки
-  function removeErrorClass() {
+  function removeErrorAnimation() {
     searchBlock.classList.remove('hotel-search--error');
   };
 
@@ -71,16 +71,16 @@
     var elementTarget = e.target;
 
     if (elementTarget.classList.contains('hotel-search__adult-value--plus')) {
-      counterPlus(counterAdult, inputAdult);
+      counterAddition(quantityAdult, inputAdult);
 
     } else if (elementTarget.classList.contains('hotel-search__adult-value--minus')) {
-      counterMinus(counterAdult, inputAdult);
+      counterSubtraction(quantityAdult, inputAdult);
 
     } else if (elementTarget.classList.contains('hotel-search__child-value--plus')) {
-      counterPlus(counterChild, inputChild);
+      counterAddition(quantityChild, inputChild);
 
     } else if (elementTarget.classList.contains('hotel-search__child-value--minus')) {
-      counterMinus(counterChild, inputChild);
+      counterSubtraction(quantityChild, inputChild);
 
     } else if (elementTarget.classList.contains('button--search')) {
 
@@ -88,30 +88,29 @@
 
       if (searchBlock.classList.contains('hotel-search--hide')) {
         hotelSearchShow();
-        removeErrorClass();
+        removeErrorAnimation();
 
-        if(storageEntry || storageOut) {
+        if (storageEntry || storageOut) {
           inputEntry.value = storageEntry;
           inputOut.value = storageOut;
-          inputChild.focus();
+          // inputChild.focus();
 
         } else inputEntry.focus();
 
 
       } else {
         hotelSearchHide();
-        removeErrorClass();
+        removeErrorAnimation();
         }
-
     }
   });
 
 
   // Закрытие формы поиска через 'esc'
   window.addEventListener('keydown', function(e) {
-    if(e.keyCode === 27) {
-      e.preventDefault();
-      hotelSearchHide();
+    if (e.keyCode === 27) {
+        e.preventDefault();
+        hotelSearchHide();
     }
   });
 
@@ -120,17 +119,16 @@
     if (!inputEntry.value || !inputOut.value) {
       e.preventDefault();
 
-      removeErrorClass();
+      removeErrorAnimation();
       searchBlock.offsetWidth = searchBlock.offsetWidth;
-      addErrorClass();
+      addErrorAnimation();
 
     } else {
 
-      if(isStorageSupport) {
-        localStorage.setItem('inputEntry', inputEntry.value);
-        localStorage.setItem('inputOut', inputOut.value);
+      if (isStorageSupport) {
+          localStorage.setItem('inputEntry', inputEntry.value);
+          localStorage.setItem('inputOut', inputOut.value);
       }
-
     }
   });
 })();
